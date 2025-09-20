@@ -6,6 +6,28 @@
 SYSTEM_CONFIG_DIR="/home/anthon/.config/system-config"
 DATE=$(date '+%Y-%m-%d %H:%M:%S')
 
+# Function to send notifications
+send_notification() {
+    local title="$1"
+    local message="$2"
+    local icon="$3"
+    
+    if [ -n "$DISPLAY" ] || [ -n "$WAYLAND_DISPLAY" ]; then
+        notify-send \
+            --app-name="System Config Backup" \
+            --icon="$icon" \
+            "$title" \
+            "$message"
+    fi
+}
+
+# Error handling function
+handle_error() {
+    echo "❌ Backup failed: $1"
+    send_notification "❌ Config Backup Failed" "Error: $1" "dialog-error"
+    exit 1
+}
+
 echo "🔄 Backing up system configurations..."
 
 # === WAYLAND COMPOSITOR (Hyprland) ===
@@ -121,8 +143,12 @@ EOF
 echo "✅ System configuration backup complete!"
 echo "📁 Files saved to: $SYSTEM_CONFIG_DIR"
 echo "📊 Summary: $SYSTEM_CONFIG_DIR/backup-summary.txt"
+
+# Send success notification
+FILE_COUNT=$(find "$SYSTEM_CONFIG_DIR" -type f -name "*.conf" -o -name "*.ini" -o -name "*.json" -o -name "*.toml" -o -name "*.css" -o -name "*.rasi" | wc -l)
+send_notification "📂 Config Backup Complete" "Backed up $FILE_COUNT configuration files\nSaved to: ~/.config/system-config" "folder-download"
+
 echo
-echo "⚠️  SECURITY NOTE:"
 echo "   Before pushing to GitHub, ensure .gitignore excludes sensitive files:"
 echo "   - applications/warp-preferences.json (contains API keys)"
 echo "   - shell-environment/environment-variables.txt (session data)"
