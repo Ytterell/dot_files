@@ -1,0 +1,11 @@
+[Unit]
+Description=Run System Configuration Backup Weekly
+Requires=config-backup.service
+
+[Timer]
+OnCalendar=Sun 02:00
+Persistent=true
+RandomizedDelaySec=600
+
+[Install]
+WantedBy=timers.target

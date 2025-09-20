@@ -1,0 +1,25 @@
+[Unit]
+Description=System Configuration Backup
+Documentation=file:///home/anthon/.config/system-config/README.md
+After=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/anthon/.config/system-config/backup-system-configs.sh
+WorkingDirectory=%h/.config/system-config
+StandardOutput=journal
+StandardError=journal
+
+# Environment variables
+Environment=HOME=%h
+Environment=XDG_CONFIG_HOME=%h/.config
+
+# Security settings
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=%h/.config/system-config
+
+[Install]
+WantedBy=default.target
