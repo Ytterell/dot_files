@@ -1,13 +1,15 @@
-# Package list updated: 2025-09-20 20:47:49
+# Package list updated: 2025-09-20 23:25:12
 # All explicitly installed packages (for complete restore)
 amd-ucode
 base
 base-devel
+bat
 blueman
 bluez
 bluez-utils
 breeze
 brightnessctl
+btop
 checkupdates-with-aur
 cliphist
 dunst
@@ -24,7 +26,6 @@ grim
 grimblast-git
 gst-plugin-pipewire
 gum
-htop
 hypridle
 hyprland
 hyprlock

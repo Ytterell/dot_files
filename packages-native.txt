@@ -1,13 +1,15 @@
-# Native packages updated: 2025-09-20 20:47:49
+# Native packages updated: 2025-09-20 23:25:12
 # Packages from official repositories
 amd-ucode
 base
 base-devel
+bat
 blueman
 bluez
 bluez-utils
 breeze
 brightnessctl
+btop
 cliphist
 dunst
 efibootmgr
@@ -21,7 +23,6 @@ git
 grim
 gst-plugin-pipewire
 gum
-htop
 hypridle
 hyprland
 hyprlock
