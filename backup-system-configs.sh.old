@@ -69,20 +69,8 @@ mkdir -p "$SYSTEM_CONFIG_DIR/shell-environment"
 # Profile files
 cp ~/.bash_profile "$SYSTEM_CONFIG_DIR/shell-environment/" 2>/dev/null
 
-# Shell aliases and configurations
-cp ~/.config/bashrc/10-aliases "$SYSTEM_CONFIG_DIR/shell-environment/aliases.sh" 2>/dev/null
-cp ~/.bashrc "$SYSTEM_CONFIG_DIR/shell-environment/.bashrc" 2>/dev/null
-
 # Environment variables from various sources
 env | grep -E "(WAYLAND|XDG|QT|GTK|GDK)" > "$SYSTEM_CONFIG_DIR/shell-environment/environment-variables.txt" 2>/dev/null
-
-# === GIT CONFIGURATION ===
-echo "🔧 Backing up Git configuration..."
-mkdir -p "$SYSTEM_CONFIG_DIR/shell-environment"
-
-# Git global configuration (excluding sensitive credentials)
-cp ~/.gitconfig "$SYSTEM_CONFIG_DIR/shell-environment/.gitconfig" 2>/dev/null || true
-# Note: .git-credentials is intentionally excluded for security
 
 # Create a summary
 cat > "$SYSTEM_CONFIG_DIR/backup-summary.txt" << EOF
@@ -107,13 +95,7 @@ cat > "$SYSTEM_CONFIG_DIR/backup-summary.txt" << EOF
 
 === SHELL ENVIRONMENT ===
 - Profile configurations
-- Shell aliases and functions
 - Environment variables
-
-=== GIT CONFIGURATION ===
-- Git global settings
-- User configuration (name, email)
-- Core Git preferences
 
 Total config files backed up: $(find "$SYSTEM_CONFIG_DIR" -type f -name "*.conf" -o -name "*.ini" -o -name "*.json" -o -name "*.toml" -o -name "*.css" -o -name "*.rasi" | wc -l)
 EOF
