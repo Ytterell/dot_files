@@ -1,0 +1,21 @@
+# Environment Variables Template
+# This is a sanitized version. The actual file contains session-specific data and is excluded from git.
+
+# Wayland Configuration
+XDG_BACKEND=wayland
+QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+XDG_SESSION_DESKTOP=Hyprland
+QT_QPA_PLATFORMTHEME=qt5ct
+XDG_SESSION_TYPE=wayland
+XDG_CURRENT_DESKTOP=Hyprland
+WAYLAND_DISPLAY=wayland-1
+QT_QPA_PLATFORM=wayland;xcb
+MOZ_ENABLE_WAYLAND=1
+QT_AUTO_SCREEN_SCALE_FACTOR=1
+GDK_BACKEND=wayland,x11,*
+GDK_SCALE=1
+
+# Note: Session-specific variables removed:
+# - XDG_SESSION_CLASS, XDG_SESSION_ID, XDG_VTNR
+# - XDG_RUNTIME_DIR (contains user ID)
+# - XDG_DATA_DIRS (contains specific paths)

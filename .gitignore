@@ -1,0 +1,40 @@
+# System Configuration - Sensitive Files
+# DO NOT commit these to public repositories
+
+# === SENSITIVE APPLICATION DATA ===
+# Warp Terminal preferences (contains API keys, telemetry, personal paths)
+applications/warp-preferences.json
+
+# === ENVIRONMENT SPECIFIC ===  
+# Environment variables (may contain session IDs, runtime paths)
+shell-environment/environment-variables.txt
+
+# === PERSONAL/SYSTEM SPECIFIC ===
+# Package update logs (may contain timestamps, system info)
+package-updates.log
+
+# Backup summary (contains file counts, dates)
+backup-summary.txt
+
+# === GENERAL PATTERNS ===
+# Any files with secrets or tokens
+*secret*
+*token*
+*password*
+*.key
+
+# Session and cache files
+*session*
+*cache*
+*.tmp
+*.log
+
+# Personal directories or files
+*personal*
+*private*
+
+# === SAFE TO COMMIT ===
+# All .conf, .css, .rasi, .toml, .ini files are generally safe
+# Package lists are safe (just package names)
+# Theme configurations are safe
+# README and documentation are safe

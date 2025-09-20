@@ -1,0 +1,211 @@
+/* ===== ML4W Material 3 Firefox Theme =====
+ * Matching your Hyprland/Waybar/GTK teal theme
+ * Generated to match colors from your matugen configuration
+ */
+
+:root {
+  /* ML4W Material 3 Color Palette */
+  --md3-primary: #86d6be;
+  --md3-on-primary: #00382d;
+  --md3-primary-container: #005142;
+  --md3-on-primary-container: #a2f2da;
+  
+  --md3-surface: #0f1513;
+  --md3-surface-bright: #343b38;
+  --md3-surface-container: #1b211f;
+  --md3-surface-container-high: #252b29;
+  --md3-surface-container-highest: #303634;
+  --md3-on-surface: #dee4e0;
+  --md3-on-surface-variant: #bfc9c4;
+  
+  --md3-outline: #89938e;
+  --md3-outline-variant: #3f4945;
+  
+  /* Override Firefox's default variables */
+  --toolbar-bgcolor: var(--md3-surface) !important;
+  --toolbar-color: var(--md3-on-surface) !important;
+  --toolbar-field-bgcolor: var(--md3-surface-container) !important;
+  --toolbar-field-color: var(--md3-on-surface) !important;
+  --toolbar-field-border-color: var(--md3-outline-variant) !important;
+  --toolbar-field-focus-bgcolor: var(--md3-surface-container-high) !important;
+  --toolbar-field-focus-border-color: var(--md3-primary) !important;
+  
+  --lwt-sidebar-background-color: var(--md3-surface) !important;
+  --lwt-sidebar-text-color: var(--md3-on-surface) !important;
+  
+  --arrowpanel-background: var(--md3-surface-container-high) !important;
+  --arrowpanel-color: var(--md3-on-surface) !important;
+  --arrowpanel-border-color: var(--md3-outline-variant) !important;
+}
+
+/* ===== TABS STYLING ===== */
+.tabbrowser-tab {
+  margin-inline-end: 2px !important;
+  border-radius: 8px 8px 0 0 !important;
+  overflow: hidden !important;
+}
+
+.tabbrowser-tab .tab-background {
+  background-color: var(--md3-surface-container) !important;
+  border: 1px solid var(--md3-outline-variant) !important;
+  border-bottom: none !important;
+  border-radius: 8px 8px 0 0 !important;
+  transition: all 0.2s ease !important;
+}
+
+.tabbrowser-tab:hover .tab-background {
+  background-color: var(--md3-surface-container-high) !important;
+  border-color: var(--md3-outline) !important;
+}
+
+.tabbrowser-tab[selected="true"] .tab-background {
+  background-color: var(--md3-primary-container) !important;
+  border-color: var(--md3-primary) !important;
+  box-shadow: 0 2px 8px rgba(134, 214, 190, 0.3) !important;
+}
+
+.tab-text {
+  color: var(--md3-on-surface-variant) !important;
+}
+
+.tabbrowser-tab[selected="true"] .tab-text {
+  color: var(--md3-on-primary-container) !important;
+  font-weight: 500 !important;
+}
+
+/* ===== TOOLBAR STYLING ===== */
+#nav-bar {
+  background-color: var(--md3-surface) !important;
+  border-bottom: 1px solid var(--md3-outline-variant) !important;
+  padding: 6px 8px !important;
+}
+
+/* URL Bar */
+#urlbar {
+  background-color: var(--md3-surface-container) !important;
+  color: var(--md3-on-surface) !important;
+  border: 1px solid var(--md3-outline-variant) !important;
+  border-radius: 24px !important;
+  transition: all 0.2s ease !important;
+}
+
+#urlbar:focus-within {
+  background-color: var(--md3-surface-container-high) !important;
+  border-color: var(--md3-primary) !important;
+  box-shadow: 0 0 0 1px var(--md3-primary) !important;
+}
+
+#urlbar-input {
+  color: var(--md3-on-surface) !important;
+}
+
+/* Toolbar buttons */
+.toolbarbutton-1 {
+  border-radius: 8px !important;
+  margin: 2px !important;
+}
+
+.toolbarbutton-1:hover {
+  background-color: var(--md3-surface-container-high) !important;
+}
+
+.toolbarbutton-1[open="true"] {
+  background-color: var(--md3-primary-container) !important;
+}
+
+/* ===== SIDEBAR ===== */
+#sidebar-box {
+  background-color: var(--md3-surface) !important;
+  border-right: 1px solid var(--md3-outline-variant) !important;
+}
+
+#sidebar-header {
+  background-color: var(--md3-surface-container) !important;
+  color: var(--md3-on-surface) !important;
+  border-bottom: 1px solid var(--md3-outline-variant) !important;
+}
+
+/* ===== CONTEXT MENUS ===== */
+menupopup,
+.panel-arrowcontainer {
+  background-color: var(--md3-surface-container-high) !important;
+  color: var(--md3-on-surface) !important;
+  border: 1px solid var(--md3-outline-variant) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+menuitem,
+.panel-arrowcontent {
+  color: var(--md3-on-surface) !important;
+}
+
+menuitem:hover {
+  background-color: var(--md3-surface-container-highest) !important;
+  border-radius: 4px !important;
+}
+
+menuitem[disabled="true"] {
+  color: var(--md3-on-surface-variant) !important;
+}
+
+/* ===== SCROLLBARS ===== */
+scrollbar {
+  background-color: transparent !important;
+}
+
+scrollbar thumb {
+  background-color: var(--md3-outline-variant) !important;
+  border-radius: 4px !important;
+}
+
+scrollbar thumb:hover {
+  background-color: var(--md3-outline) !important;
+}
+
+scrollbar thumb:active {
+  background-color: var(--md3-primary) !important;
+}
+
+/* ===== BOOKMARKS TOOLBAR ===== */
+#PersonalToolbar {
+  background-color: var(--md3-surface-container) !important;
+  border-bottom: 1px solid var(--md3-outline-variant) !important;
+}
+
+.bookmark-item {
+  color: var(--md3-on-surface) !important;
+  border-radius: 6px !important;
+  padding: 4px 8px !important;
+  margin: 2px !important;
+}
+
+.bookmark-item:hover {
+  background-color: var(--md3-surface-container-high) !important;
+}
+
+/* ===== STATUS PANEL ===== */
+#statuspanel {
+  background-color: var(--md3-surface-container-high) !important;
+  color: var(--md3-on-surface) !important;
+  border: 1px solid var(--md3-outline-variant) !important;
+  border-radius: 6px !important;
+}
+
+/* ===== NOTIFICATION BOX ===== */
+.notificationbox-stack {
+  background-color: var(--md3-surface-container) !important;
+}
+
+/* ===== FINDBAR ===== */
+.findbar-container {
+  background-color: var(--md3-surface-container-high) !important;
+  border-top: 1px solid var(--md3-outline-variant) !important;
+}
+
+.findbar-textbox {
+  background-color: var(--md3-surface-container) !important;
+  color: var(--md3-on-surface) !important;
+  border: 1px solid var(--md3-outline-variant) !important;
+  border-radius: 6px !important;
+}

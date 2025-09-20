@@ -1,0 +1,239 @@
+/* ===== ML4W Material 3 Firefox Content Theme =====
+ * Styles internal Firefox pages (about:*, newtab, etc.)
+ * Matching your Hyprland/Waybar/GTK teal theme
+ */
+
+:root {
+  /* ML4W Material 3 Color Palette */
+  --md3-primary: #86d6be;
+  --md3-on-primary: #00382d;
+  --md3-primary-container: #005142;
+  --md3-on-primary-container: #a2f2da;
+  
+  --md3-surface: #0f1513;
+  --md3-surface-bright: #343b38;
+  --md3-surface-container: #1b211f;
+  --md3-surface-container-high: #252b29;
+  --md3-surface-container-highest: #303634;
+  --md3-on-surface: #dee4e0;
+  --md3-on-surface-variant: #bfc9c4;
+  
+  --md3-outline: #89938e;
+  --md3-outline-variant: #3f4945;
+}
+
+/* ===== NEW TAB PAGE ===== */
+@-moz-document url-prefix("about:newtab"), url-prefix("about:home") {
+  body {
+    background-color: var(--md3-surface) !important;
+    color: var(--md3-on-surface) !important;
+  }
+  
+  .search-wrapper input[type="text"] {
+    background-color: var(--md3-surface-container) !important;
+    color: var(--md3-on-surface) !important;
+    border: 1px solid var(--md3-outline-variant) !important;
+    border-radius: 24px !important;
+  }
+  
+  .search-wrapper input[type="text"]:focus {
+    border-color: var(--md3-primary) !important;
+    box-shadow: 0 0 0 1px var(--md3-primary) !important;
+  }
+  
+  .top-sites-list .top-site-outer .tile {
+    background-color: var(--md3-surface-container) !important;
+    border-radius: 8px !important;
+    border: 1px solid var(--md3-outline-variant) !important;
+  }
+  
+  .top-sites-list .top-site-outer .tile:hover {
+    background-color: var(--md3-surface-container-high) !important;
+    border-color: var(--md3-outline) !important;
+  }
+}
+
+/* ===== ABOUT PAGES (settings, addons, etc.) ===== */
+@-moz-document url-prefix("about:") {
+  body,
+  html {
+    background-color: var(--md3-surface) !important;
+    color: var(--md3-on-surface) !important;
+  }
+  
+  /* Headers */
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--md3-on-surface) !important;
+  }
+  
+  /* Links */
+  a {
+    color: var(--md3-primary) !important;
+  }
+  
+  a:hover {
+    color: var(--md3-on-primary-container) !important;
+  }
+  
+  /* Buttons */
+  button,
+  .button,
+  input[type="button"],
+  input[type="submit"] {
+    background-color: var(--md3-primary-container) !important;
+    color: var(--md3-on-primary-container) !important;
+    border: 1px solid var(--md3-outline-variant) !important;
+    border-radius: 6px !important;
+    padding: 8px 16px !important;
+  }
+  
+  button:hover,
+  .button:hover {
+    background-color: var(--md3-surface-container-high) !important;
+    border-color: var(--md3-primary) !important;
+  }
+  
+  /* Input fields */
+  input[type="text"],
+  input[type="search"],
+  input[type="url"],
+  input[type="email"],
+  input[type="password"],
+  textarea,
+  select {
+    background-color: var(--md3-surface-container) !important;
+    color: var(--md3-on-surface) !important;
+    border: 1px solid var(--md3-outline-variant) !important;
+    border-radius: 4px !important;
+    padding: 6px 12px !important;
+  }
+  
+  input[type="text"]:focus,
+  input[type="search"]:focus,
+  input[type="url"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus,
+  textarea:focus,
+  select:focus {
+    border-color: var(--md3-primary) !important;
+    box-shadow: 0 0 0 1px var(--md3-primary) !important;
+  }
+  
+  /* Checkboxes and radio buttons */
+  input[type="checkbox"],
+  input[type="radio"] {
+    accent-color: var(--md3-primary) !important;
+  }
+}
+
+/* ===== ABOUT:PREFERENCES ===== */
+@-moz-document url-prefix("about:preferences") {
+  #mainPrefPane {
+    background-color: var(--md3-surface) !important;
+  }
+  
+  .category {
+    background-color: var(--md3-surface-container) !important;
+    border-radius: 6px !important;
+    margin: 2px !important;
+  }
+  
+  .category[selected="true"] {
+    background-color: var(--md3-primary-container) !important;
+    color: var(--md3-on-primary-container) !important;
+  }
+  
+  .category:hover {
+    background-color: var(--md3-surface-container-high) !important;
+  }
+  
+  groupbox {
+    background-color: var(--md3-surface-container) !important;
+    border: 1px solid var(--md3-outline-variant) !important;
+    border-radius: 8px !important;
+    margin: 8px 0 !important;
+    padding: 12px !important;
+  }
+  
+  caption {
+    color: var(--md3-on-surface) !important;
+    font-weight: 500 !important;
+  }
+}
+
+/* ===== ABOUT:ADDONS ===== */
+@-moz-document url-prefix("about:addons") {
+  .main-content {
+    background-color: var(--md3-surface) !important;
+  }
+  
+  .addon-card {
+    background-color: var(--md3-surface-container) !important;
+    border: 1px solid var(--md3-outline-variant) !important;
+    border-radius: 8px !important;
+    margin: 8px 0 !important;
+  }
+  
+  .addon-card:hover {
+    background-color: var(--md3-surface-container-high) !important;
+    border-color: var(--md3-outline) !important;
+  }
+  
+  .navigation {
+    background-color: var(--md3-surface-container) !important;
+    border-right: 1px solid var(--md3-outline-variant) !important;
+  }
+}
+
+/* ===== SCROLLBARS FOR CONTENT ===== */
+@-moz-document url-prefix("about:") {
+  ::-webkit-scrollbar {
+    width: 12px !important;
+    background-color: transparent !important;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: var(--md3-surface-container) !important;
+    border-radius: 6px !important;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--md3-outline-variant) !important;
+    border-radius: 6px !important;
+    border: 2px solid var(--md3-surface-container) !important;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--md3-outline) !important;
+  }
+  
+  ::-webkit-scrollbar-thumb:active {
+    background-color: var(--md3-primary) !important;
+  }
+}
+
+/* ===== PDF VIEWER ===== */
+@-moz-document url-prefix("chrome://pdf.js/") {
+  body {
+    background-color: var(--md3-surface) !important;
+  }
+  
+  #viewer {
+    background-color: var(--md3-surface) !important;
+  }
+  
+  .toolbar {
+    background-color: var(--md3-surface-container) !important;
+    border-bottom: 1px solid var(--md3-outline-variant) !important;
+  }
+  
+  .toolbarButton {
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 4px !important;
+  }
+  
+  .toolbarButton:hover {
+    background-color: var(--md3-surface-container-high) !important;
+  }
+}

@@ -1,0 +1,391 @@
+/* ===== ML4W Material 3 Obsidian Theme =====
+ * Matching your Hyprland/Waybar/GTK teal theme
+ * Generated to match colors from your matugen configuration
+ */
+
+/* ===== COLOR VARIABLES ===== */
+.theme-dark {
+  /* Primary ML4W Material 3 Colors */
+  --color-accent: #86d6be;
+  --color-accent-1: #a2f2da;
+  --color-accent-2: #005142;
+  
+  /* Backgrounds */
+  --background-primary: #0f1513;
+  --background-primary-alt: #171d1b;
+  --background-secondary: #1b211f;
+  --background-secondary-alt: #252b29;
+  --background-modifier-border: #3f4945;
+  --background-modifier-border-hover: #89938e;
+  --background-modifier-border-focus: #86d6be;
+  
+  /* Surfaces */
+  --background-modifier-box-shadow: rgba(0, 0, 0, 0.3);
+  --background-modifier-cover: rgba(15, 21, 19, 0.8);
+  --background-modifier-form-field: #252b29;
+  --background-modifier-form-field-highlighted: #303634;
+  
+  /* Text Colors */
+  --text-normal: #dee4e0;
+  --text-muted: #bfc9c4;
+  --text-faint: #89938e;
+  --text-on-accent: #00382d;
+  --text-accent: #86d6be;
+  --text-accent-hover: #a2f2da;
+  --text-error: #ffb4ab;
+  --text-warning: #a9cbe3;
+  --text-success: #b2ccc2;
+  
+  /* Interactive Elements */
+  --interactive-normal: #252b29;
+  --interactive-hover: #303634;
+  --interactive-accent: #86d6be;
+  --interactive-accent-hover: #a2f2da;
+  
+  /* Scrollbars */
+  --scrollbar-bg: rgba(0, 0, 0, 0.05);
+  --scrollbar-thumb-bg: #3f4945;
+  --scrollbar-active-thumb-bg: #86d6be;
+  
+  /* Other UI Elements */
+  --divider-color: #3f4945;
+  --checkbox-color: #86d6be;
+  --checkbox-border-color: #89938e;
+  --slider-track-bg: #3f4945;
+  --slider-thumb-bg: #86d6be;
+}
+
+/* ===== WORKSPACE STYLING ===== */
+.workspace-ribbon {
+  background-color: var(--background-secondary);
+  border-right: 1px solid var(--background-modifier-border);
+}
+
+.workspace-ribbon .side-dock-ribbon-tab {
+  color: var(--text-muted);
+  border-radius: 6px;
+  margin: 2px;
+}
+
+.workspace-ribbon .side-dock-ribbon-tab:hover {
+  background-color: var(--interactive-hover);
+  color: var(--text-normal);
+}
+
+.workspace-ribbon .side-dock-ribbon-tab.is-active {
+  background-color: var(--color-accent-2);
+  color: var(--color-accent-1);
+}
+
+/* ===== STATUS BAR ===== */
+.status-bar {
+  background-color: var(--background-secondary);
+  border-top: 1px solid var(--background-modifier-border);
+  color: var(--text-muted);
+}
+
+.status-bar-item {
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+.status-bar-item:hover {
+  background-color: var(--interactive-hover);
+  color: var(--text-normal);
+}
+
+/* ===== TITLE BAR ===== */
+.titlebar {
+  background-color: var(--background-primary);
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.titlebar-text {
+  color: var(--text-normal);
+}
+
+/* ===== TABS ===== */
+.workspace-tab-header-container {
+  background-color: var(--background-secondary);
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.workspace-tab-header {
+  background-color: var(--background-secondary);
+  border-radius: 6px 6px 0 0;
+  margin-right: 2px;
+}
+
+.workspace-tab-header:hover {
+  background-color: var(--interactive-hover);
+}
+
+.workspace-tab-header.is-active {
+  background-color: var(--color-accent-2);
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.workspace-tab-header.is-active .workspace-tab-header-inner-title {
+  color: var(--color-accent-1);
+  font-weight: 500;
+}
+
+/* ===== EDITOR STYLING ===== */
+.markdown-source-view.mod-cm6 .cm-editor {
+  background-color: var(--background-primary);
+}
+
+.markdown-source-view.mod-cm6 .cm-scroller {
+  background-color: var(--background-primary);
+}
+
+.markdown-source-view.mod-cm6 .cm-content {
+  color: var(--text-normal);
+}
+
+.markdown-source-view.mod-cm6 .cm-line {
+  color: var(--text-normal);
+}
+
+/* ===== HEADINGS ===== */
+.markdown-source-view.mod-cm6 .cm-header-1,
+.markdown-preview-view h1 {
+  color: var(--color-accent);
+  border-bottom: 2px solid var(--color-accent-2);
+  padding-bottom: 4px;
+}
+
+.markdown-source-view.mod-cm6 .cm-header-2,
+.markdown-preview-view h2 {
+  color: var(--color-accent-1);
+  border-bottom: 1px solid var(--background-modifier-border);
+  padding-bottom: 2px;
+}
+
+.markdown-source-view.mod-cm6 .cm-header-3,
+.markdown-source-view.mod-cm6 .cm-header-4,
+.markdown-source-view.mod-cm6 .cm-header-5,
+.markdown-source-view.mod-cm6 .cm-header-6,
+.markdown-preview-view h3,
+.markdown-preview-view h4,
+.markdown-preview-view h5,
+.markdown-preview-view h6 {
+  color: var(--text-accent-hover);
+}
+
+/* ===== CODE BLOCKS ===== */
+.markdown-source-view.mod-cm6 .cm-code,
+.markdown-preview-view code {
+  background-color: var(--background-secondary-alt);
+  color: var(--text-accent);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
+.markdown-source-view.mod-cm6 .HyperMD-codeblock,
+.markdown-preview-view pre {
+  background-color: var(--background-secondary-alt);
+  border: 1px solid var(--color-accent-2);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 6px;
+  padding: 12px;
+}
+
+/* ===== LINKS ===== */
+.markdown-source-view.mod-cm6 .cm-link,
+.markdown-preview-view a {
+  color: var(--color-accent);
+}
+
+.markdown-source-view.mod-cm6 .cm-link:hover,
+.markdown-preview-view a:hover {
+  color: var(--color-accent-1);
+  text-decoration: underline;
+}
+
+/* ===== BLOCKQUOTES ===== */
+.markdown-source-view.mod-cm6 .HyperMD-quote,
+.markdown-preview-view blockquote {
+  background-color: var(--background-secondary);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 0 4px 4px 0;
+  padding: 8px 12px;
+  margin: 8px 0;
+}
+
+/* ===== LISTS ===== */
+.markdown-source-view.mod-cm6 .HyperMD-list-line {
+  color: var(--text-normal);
+}
+
+.markdown-source-view.mod-cm6 .cm-formatting-list {
+  color: var(--color-accent);
+}
+
+/* ===== TABLES ===== */
+.markdown-preview-view table {
+  border-collapse: collapse;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.markdown-preview-view th {
+  background-color: var(--color-accent-2);
+  color: var(--color-accent-1);
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.markdown-preview-view td {
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.markdown-preview-view tr:hover {
+  background-color: var(--background-secondary);
+}
+
+/* ===== SIDEBAR ===== */
+.nav-folder-title {
+  color: var(--text-normal);
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+.nav-folder-title:hover {
+  background-color: var(--interactive-hover);
+}
+
+.nav-file-title {
+  color: var(--text-muted);
+  border-radius: 4px;
+  padding: 2px 8px;
+}
+
+.nav-file-title:hover {
+  background-color: var(--interactive-hover);
+  color: var(--text-normal);
+}
+
+.nav-file-title.is-active {
+  background-color: var(--color-accent-2);
+  color: var(--color-accent-1);
+}
+
+/* ===== SEARCH ===== */
+.search-input-container input {
+  background-color: var(--background-modifier-form-field);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+  color: var(--text-normal);
+}
+
+.search-input-container input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 1px var(--color-accent);
+}
+
+.search-result-file-title {
+  color: var(--color-accent);
+}
+
+.search-result-file-match {
+  background-color: var(--background-secondary);
+  border-radius: 4px;
+  border-left: 3px solid var(--color-accent);
+  padding: 4px 8px;
+  margin: 2px 0;
+}
+
+/* ===== GRAPH VIEW ===== */
+.graph-view.color-fill {
+  color: var(--color-accent);
+}
+
+.graph-view.color-line {
+  color: var(--background-modifier-border);
+}
+
+.graph-view.color-text {
+  color: var(--text-muted);
+}
+
+/* ===== MODALS AND POPUPS ===== */
+.modal {
+  background-color: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  box-shadow: 0 8px 32px var(--background-modifier-box-shadow);
+}
+
+.modal-title {
+  color: var(--text-normal);
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.suggestion-container {
+  background-color: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+}
+
+.suggestion-item.is-selected {
+  background-color: var(--color-accent-2);
+  color: var(--color-accent-1);
+}
+
+/* ===== BUTTONS ===== */
+.mod-cta,
+button.mod-cta {
+  background-color: var(--color-accent);
+  color: var(--text-on-accent);
+  border-radius: 6px;
+}
+
+.mod-cta:hover,
+button.mod-cta:hover {
+  background-color: var(--color-accent-1);
+}
+
+button {
+  background-color: var(--interactive-normal);
+  color: var(--text-normal);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: var(--interactive-hover);
+  border-color: var(--background-modifier-border-hover);
+}
+
+/* ===== CHECKBOXES ===== */
+input[type=checkbox] {
+  accent-color: var(--color-accent);
+}
+
+.markdown-preview-view .task-list-item-checkbox {
+  accent-color: var(--color-accent);
+}
+
+/* ===== SCROLLBARS ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-bg);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--background-modifier-border-hover);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: var(--scrollbar-active-thumb-bg);
+}

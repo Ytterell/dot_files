@@ -1,0 +1,24 @@
+{
+  "_note": "This is a sanitized template. The actual warp-preferences.json contains sensitive data and is excluded from git.",
+  "prefs": {
+    "Theme": "\"Phenomenon\"",
+    "OverrideOpacity": "40",
+    "FontSize": "13.0",
+    "NotebookFontSize": "14.0",
+    "Spacing": "\"Normal\"",
+    "InputBoxTypeSetting": "\"Universal\"",
+    "TelemetryEnabled": "false",
+    "ShouldDimInactivePanes": "false",
+    "WorkflowsBoxOpen": "true",
+    "AltScreenPadding": "{\"Custom\":{\"uniform_padding\":0.0}}",
+    "CrashReportingEnabled": "true",
+    "_sensitive_keys_removed": [
+      "ExperimentId",
+      "MCPExecutionPath", 
+      "AIRequestLimitInfo",
+      "AgentModeSetupBannerShownForRepoPaths",
+      "CustomSecretRegexList",
+      "EnteredAgentModeNumTimes"
+    ]
+  }
+}
