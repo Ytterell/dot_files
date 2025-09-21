@@ -1,4 +1,4 @@
-# Package list updated: 2025-09-21 00:02:31
+# Package list updated: 2025-09-21 15:07:28
 # All explicitly installed packages (for complete restore)
 amd-ucode
 base
@@ -45,6 +45,7 @@ linux-firmware
 loupe
 lvm2
 ly
+mesa-utils
 nano
 nautilus
 neovim
