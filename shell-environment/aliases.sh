@@ -24,6 +24,45 @@ alias cdml4w='cd ~/.config/ml4w/settings'
 alias bashp='cd ~/.config/bashrc'
 alias keyb='cd ~/.config/hypr/conf/keybindings'
 
+alias ls='eza -a --icons=always --group-directories-first'
+alias ll='eza -al --icons=always --group-directories-first --header --git'
+alias lt='eza -aT --icons=always --group-directories-first --level=2'
+alias la='eza -la --icons=always --group-directories-first --git --header'
+
+if command -v bat >/dev/null 2>&1; then
+    alias cat='bat --paging=never'
+    alias ccat='bat --plain --paging=never'  # Original cat behavior
+    alias batl='bat --paging=always'         # Long files
+fi
+
+# Grep with colors and context
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+if command -v trash >/dev/null 2>&1; then
+    alias rm='trash'
+    alias rmf='/bin/rm -f'     # Force delete when you really mean it
+    alias rmrf='/bin/rm -rf'   # Nuke from orbit
+fi
+
+# Directory navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ~='cd ~'
+alias -- -='cd -'
+
+# Quick edits
+alias bashrc='$EDITOR ~/.bashrc'
+alias vimrc='$EDITOR ~/.vimrc'
+alias nvimrc='$EDITOR ~/.config/nvim/init.vim'
+
+# System shortcuts
+alias reboot='sudo systemctl reboot'
+alias poweroff='sudo systemctl poweroff'
+alias suspend='sudo systemctl suspend'
 # -----------------------------------------------------
 # ML4W Apps
 # -----------------------------------------------------

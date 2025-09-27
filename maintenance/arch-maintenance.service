@@ -1,0 +1,30 @@
+[Unit]
+Description=Arch Linux System Maintenance
+Documentation=file://%h/.config/system-config/maintenance/README.md
+After=network.target
+Wants=network.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.config/system-config/maintenance/maintenance.sh --auto
+
+# Logging configuration
+StandardOutput=append:%h/.config/system-config/logs/maintenance-%Y%m%d.log
+StandardError=append:%h/.config/system-config/logs/maintenance-%Y%m%d.log
+
+# Security and resource settings
+PrivateTmp=true
+ProtectSystem=false
+ProtectHome=false
+NoNewPrivileges=false
+
+# Environment
+Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+Environment=HOME=%h
+
+# Timeout and resource limits
+TimeoutStartSec=1800
+TimeoutStopSec=60
+
+[Install]
+WantedBy=default.target

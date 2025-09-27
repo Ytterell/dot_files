@@ -1,0 +1,20 @@
+[Unit]
+Description=Monthly Arch Linux System Maintenance
+Documentation=file://%h/.config/system-config/maintenance/README.md
+Requires=arch-maintenance.service
+
+[Timer]
+# Run on the 1st of every month at 02:00
+OnCalendar=*-*-01 02:00:00
+
+# Add randomized delay to avoid all systems updating at the same time
+RandomizedDelaySec=2h
+
+# Make sure the timer persists across reboots
+Persistent=true
+
+# Accuracy - allow some drift for power management
+AccuracySec=1h
+
+[Install]
+WantedBy=timers.target

@@ -3,6 +3,33 @@
 # System Configuration Backup Script
 # Backs up important system configurations to system-config directory
 
+# Show help if requested
+if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+    cat << EOF
+📁 System Configuration Backup Script
+
+Backs up critical system configurations to ~/.config/system-config/
+
+🚀 USAGE:
+    $0                    # Run complete backup
+    $0 --help             # Show this help
+
+📂 BACKED UP CONFIGURATIONS:
+    • Wayland/Hyprland: Window manager, compositor settings
+    • Theme System: GTK, Qt, Rofi, Matugen configurations  
+    • Applications: Warp Terminal, Obsidian settings
+    • Shell Environment: Bash profile, aliases, Git config
+    • System Maintenance: Automated maintenance scripts
+
+📄 OUTPUT:
+    • Files: ~/.config/system-config/
+    • Summary: ~/.config/system-config/backup-summary.txt
+    • Notifications: Desktop notifications on completion
+
+EOF
+    exit 0
+fi
+
 SYSTEM_CONFIG_DIR="/home/anthon/.config/system-config"
 DATE=$(date '+%Y-%m-%d %H:%M:%S')
 
@@ -106,6 +133,15 @@ mkdir -p "$SYSTEM_CONFIG_DIR/shell-environment"
 cp ~/.gitconfig "$SYSTEM_CONFIG_DIR/shell-environment/.gitconfig" 2>/dev/null || true
 # Note: .git-credentials is intentionally excluded for security
 
+# === SYSTEM MAINTENANCE ===
+echo "🔧 Backing up system maintenance..."
+mkdir -p "$SYSTEM_CONFIG_DIR/maintenance"
+
+# Maintenance system (configs only - scripts are already in place)
+# Note: maintenance.sh and README.md are already in the system-config directory
+cp ~/.config/systemd/user/arch-maintenance.service "$SYSTEM_CONFIG_DIR/maintenance/" 2>/dev/null || true
+cp ~/.config/systemd/user/arch-maintenance.timer "$SYSTEM_CONFIG_DIR/maintenance/" 2>/dev/null || true
+
 # Create a summary
 cat > "$SYSTEM_CONFIG_DIR/backup-summary.txt" << EOF
 # System Configuration Backup Summary
@@ -137,7 +173,12 @@ cat > "$SYSTEM_CONFIG_DIR/backup-summary.txt" << EOF
 - User configuration (name, email)
 - Core Git preferences
 
-Total config files backed up: $(find "$SYSTEM_CONFIG_DIR" -type f -name "*.conf" -o -name "*.ini" -o -name "*.json" -o -name "*.toml" -o -name "*.css" -o -name "*.rasi" | wc -l)
+=== SYSTEM MAINTENANCE ===
+- Automated maintenance scripts and configuration
+- Systemd service and timer definitions
+- Monthly maintenance scheduling
+
+Total config files backed up: $(find "$SYSTEM_CONFIG_DIR" -type f -name "*.conf" -o -name "*.ini" -o -name "*.json" -o -name "*.toml" -o -name "*.css" -o -name "*.rasi" -o -name "*.service" -o -name "*.timer" | wc -l)
 EOF
 
 echo "✅ System configuration backup complete!"
@@ -145,7 +186,7 @@ echo "📁 Files saved to: $SYSTEM_CONFIG_DIR"
 echo "📊 Summary: $SYSTEM_CONFIG_DIR/backup-summary.txt"
 
 # Send success notification
-FILE_COUNT=$(find "$SYSTEM_CONFIG_DIR" -type f -name "*.conf" -o -name "*.ini" -o -name "*.json" -o -name "*.toml" -o -name "*.css" -o -name "*.rasi" | wc -l)
+FILE_COUNT=$(find "$SYSTEM_CONFIG_DIR" -type f -name "*.conf" -o -name "*.ini" -o -name "*.json" -o -name "*.toml" -o -name "*.css" -o -name "*.rasi" -o -name "*.service" -o -name "*.timer" | wc -l)
 send_notification "📂 Config Backup Complete" "Backed up $FILE_COUNT configuration files\nSaved to: ~/.config/system-config" "folder-download"
 
 echo

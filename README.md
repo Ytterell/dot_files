@@ -7,6 +7,7 @@ Comprehensive system configuration, package management, themes, and documentatio
 ## 📋 Table of Contents
 
 - [📦 Package Management](#-package-management)
+- [🔧 System Maintenance](#-system-maintenance)
 - [🎨 Application Themes](#-application-themes)  
 - [🔧 System Integration](#-system-integration)
 - [📚 Installation & Restore](#-installation--restore)
@@ -48,6 +49,54 @@ sudo pacman -S --needed - < ~/.config/system-config/packages-native.txt
 cat ~/.config/system-config/packages-foreign.txt
 ```
 
+## 🔧 System Maintenance
+
+### Automated Monthly Maintenance
+
+Your system includes automated monthly maintenance that keeps Arch Linux healthy and up-to-date:
+
+- **System Updates**: Full system updates including AUR packages via `yay`
+- **Mirror Optimization**: Updates pacman mirrors using `reflector` for fastest downloads  
+- **Package Cache Management**: Cleans old packages while keeping recent versions
+- **Orphan Package Removal**: Removes unused packages with Flatpak dependency protection
+- **SSD Optimization**: Performs SSD TRIM for better performance
+- **Journal Management**: Cleans systemd logs to manage disk usage
+- **System Health Checks**: Monitors for failed services and disk usage
+- **Comprehensive Logging**: All operations logged with desktop notifications
+
+#### Maintenance Schedule
+
+**Automated**: Runs on the **1st of every month at 2:00 AM** (with up to 2 hours random delay)
+
+```bash
+# Check maintenance schedule
+systemctl --user list-timers | grep maintenance
+
+# Run maintenance manually (interactive)
+~/.config/system-config/maintenance/maintenance.sh
+
+# Run maintenance automatically (no prompts)
+~/.config/system-config/maintenance/maintenance.sh --auto
+
+# Preview what would be done
+~/.config/system-config/maintenance/maintenance.sh --dry-run
+```
+
+#### Configuration
+
+Customize maintenance behavior by editing `~/.config/system-config/maintenance/maintenance.conf`:
+- Package cache retention (default: 3 versions)
+- Journal log retention (default: 14 days)
+- Country for mirror selection (auto-detected)
+- Enable/disable specific maintenance tasks
+
+#### Logs & Monitoring
+
+- **Detailed logs**: `~/.config/system-config/logs/maintenance-*.log`
+- **Integrated summaries**: Added to `backup-summary.txt`
+- **Desktop notifications**: Success/failure notifications
+- **Automatic cleanup**: Logs older than 12 months are removed
+
 ### System Configuration Backup
 
 Comprehensive backup of critical system configurations organized by category:
@@ -81,11 +130,17 @@ Comprehensive backup of critical system configurations organized by category:
 **🐚 Shell Environment (`shell-environment/`)**
 - **Profile Files**: .bash_profile and environment setup
 - **Environment Variables**: Wayland, XDG, Qt, GTK variables
+- **Git Configuration**: Global git settings and user config
+
+**🔧 System Maintenance (`maintenance/`)**
+- **Maintenance Scripts**: Automated system maintenance
+- **Configuration**: Customizable maintenance settings
+- **Documentation**: Complete maintenance system documentation
 
 #### Backup Statistics:
-- **Total Files**: 102+ configuration files
-- **Categories**: 4 major system areas
-- **Coverage**: Complete ML4W Hyprland environment
+- **Total Files**: 127+ configuration files
+- **Categories**: 5 major system areas
+- **Coverage**: Complete ML4W Hyprland environment + automated maintenance
 
 ## 🎨 Application Themes
 
@@ -196,15 +251,19 @@ The configuration system integrates seamlessly with your ML4W setup:
 - `obsidian/ML4W-material3.css` - Obsidian theme snippet (backup)
 
 #### System Configuration Backups:
-- `wayland-compositor/` - Complete Hyprland setup (102+ files)
+- `wayland-compositor/` - Complete Hyprland setup (90+ files)
 - `theme-system/` - Matugen, GTK, Qt, Rofi configurations
 - `applications/` - Warp Terminal, Obsidian settings
-- `shell-environment/` - Profile files, environment variables
+- `shell-environment/` - Profile files, environment variables, Git config
+- `maintenance/` - System maintenance scripts and configuration
+- `logs/` - Maintenance and backup logs
 - `backup-system-configs.sh` - Automated backup script
 - `backup-summary.txt` - Latest backup report
+- `check-backup-status.sh` - Backup verification script
 
 #### System Integration:
 - `/etc/pacman.d/hooks/update-package-lists.hook` - Pacman trigger
+- `~/.config/systemd/user/` - User systemd services and timers
 
 ### Active Theme Files:
 - Firefox: `~/.mozilla/firefox/hda5zepb.default-release/chrome/`
@@ -222,6 +281,13 @@ The configuration system integrates seamlessly with your ML4W setup:
 - Check backup summary: `cat ~/.config/system-config/backup-summary.txt`
 - Verify file counts: `find ~/.config/system-config/ -type f | wc -l`
 - Missing configs: Check if source files exist in `~/.config/`
+
+### System Maintenance Issues:
+- **Check maintenance status**: `systemctl --user status arch-maintenance.timer`
+- **View maintenance logs**: `tail ~/.config/system-config/logs/maintenance-*.log`
+- **Test maintenance manually**: `~/.config/system-config/maintenance/maintenance.sh --dry-run`
+- **Timer not running**: `systemctl --user enable arch-maintenance.timer`
+- **Missing dependencies**: `sudo pacman -S reflector` (for mirror updates)
 
 ### Theme Issues:
 - **Firefox**: Ensure userChrome.css is enabled in about:config
